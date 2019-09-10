@@ -301,7 +301,8 @@ careful with using the exact same output/commands.
 
 ### Step 0 - Creating a Remote Repository
 Git can function without remote, but for the sake of this learning experience, please create a remote on GitHub.
-![Creating a Repository](./imgs/step0_create_repo.png)
+1. Press the "New" button
+  ![Creating a Repository](./imgs/step0_create_repo.png)
 
 ### Step 1 - Creating an Issue
 GitHub allows developers to create 'issues' associated with their
@@ -311,11 +312,9 @@ about feature implementations, and assign particular developers to
 work on problems/features.
 
 To create an issue:
-1. Navigate to GitLab's sidebar and click on 'issues'. You should see:
-  ![Empty Issue Page](./imgs/step1_1_empty_issue.png)
-2. Click the 'new issue' button.
+1. Navigate to GitHub repository and click on 'Issues'.
+2. Click the 'New issue' button.
 3. Create an issue that looks like:
-  ![Creating an Issue](./imgs/step1_3_filled_issue.png) where:
     + Title = 'Fix client.py not connecting to server.py'
     + Description = 'Fix \`client.py\` not connecting to the \`server.py\` due to
       ip/port inconsistency.'
@@ -324,7 +323,7 @@ To create an issue:
 You now have your first task, let's complete it.
 
 ## Step 2 - Adding the issue to the board
-GitLab boards are useful for scheduling and organizing issues into their current
+GitHub Projects are useful for scheduling and organizing issues into their current
 status. Our agile method keeps track of all issues in 3 primary states:
 1. `todo` - tasks that haven't been started, but need to be completed
 2. `in progress` - tasks that are currently being worked on
@@ -332,11 +331,10 @@ status. Our agile method keeps track of all issues in 3 primary states:
 
 We should add your issue in the `in progress` section of the board to designate
 that you are currently working on it:
-1. Click the 'Board' menu under issues which should show:
-  ![Board Screen](./imgs/step2_1_issue_board.png)
-2. Add the default lists by clicking the 'Add default lists' button and move the
-   issue in the 'Doing' section:
-  ![Default Lists Screen](./imgs/step2_2_default_lists.png)
+1. Click the 'Projects' menu under issues which should show:
+2. Click "Create a Project"
+3. Name the Project and choose the template "automated kanban with reviews"
+4. Drag the card from the right to the "In Progress" section
 
 Now let us take a look at the issue.
 
@@ -387,12 +385,14 @@ Test your changes by running the commands again, you should see:
 
 Make sure to commit and push your code onto the remote branch by using:
 ```bash
+>>> git add .
 >>> git commit
 >>> git push origin fix/client_connection
 ```
 
 Now that you have successfully solved the issue, you should submit your
 changes in a pull request.
+
 ## Step 4 - Merging your changes with a pull request
 Pull requests are ordinarily used so other developers can review
 your code before being merged into master, preventing bad code from entering
@@ -401,39 +401,19 @@ production.
 You are the only developer in your project so you will be reviewing your own
 code. To create a pull request with your branch, perform the
 following steps:
-1. Click the 'Merge Request' menu on the left of GitLab. The result should
-   look like:
-   ![Merge Request Page](./imgs/step4_1_merge_request.png)
-2. Click 'new merge request' near the buttom of the page. The result should look
-   like:
-   ![New Merge Request](./imgs/step4_2_new_merge_request.png)
-3. The `source branch` is the branch you wish to merge into the `target branch`,
-   set the `source branch` to `fix/client_connection` (if you do not see this,
-   make sure you created and/or pushed the changes on that branch):
-   ![Source Branch Set](./imgs/step4_3_source_branch.png).
-4. Click 'compare branches and continue'
-5. Make sure everything looks okay on the screen i.e. add a title or change the
-   description if you want (you shouldn't have to change anything) and click
-   'submit merge request'.
-6. Open the Merge Request by clicking 'Merge Requests' -> the only merge request:
-  ![Live Merge Request](./imgs/step4_6_merge_request.png)
-7. Review your code and click on `Merge` when you're ready to go. **DO NOT**
-   delete the source branch as I will be checking that it exists in the auto
-   grader (this should be fine by default).
+1. Click the 'Pull Request' menu on the top of GitHub.
+2. Click 'New pull request' near the top-right of the page.
+3. The `target branch` is the branch you wish to merge into the `base branch`,
+   set the `target branch` to `fix/client_connection`.
+4. Click 'Create pull request'
+5. Make sure everything looks okay on the screen, comment `closes #1` and click
+   'Create pull request'.
+6. Open the Pull Request by clicking 'Pull Requests' -> the only merge request.
+7. Review your code and click on `Merge` when you're ready to go.
 
 
 ## Step 5 - Finishing up
-Now that we are done, we need to make sure to close the issue in `issues` and
-move the issue in our board to `closed`. When you close the issue, it should
+Now that we are done, we need to make sure the issue in `Issues` is `closed`. When you close the PR, it should
 automatically move it to `closed`, but check to make sure.
 
 Figuring out these two steps will be left as an exercise for the reader.
-
-## Bonus
-As a little fun for advanced git users, see if you can squash all of my
-commits I used to setup the assignment into one commit. I would be careful
-with this as it could potentially mess up your git tree, but for the brave of
-heart extra resources can be found at
-https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History. Master is a
-protected branch so it may not allow you to do this on master. Try using a
-branch called 'bonus' and I'll check to see if it is there.
