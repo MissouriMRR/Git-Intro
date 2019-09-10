@@ -1,7 +1,7 @@
 import socket
 
 IP = "localhost"
-PORT = 4000
+PORT = 5000
 
 # create an INET, STREAMing socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
